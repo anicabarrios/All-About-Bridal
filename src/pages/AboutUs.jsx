@@ -3,8 +3,32 @@ import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { FaHeart, FaGem, FaMagic, FaCrown } from 'react-icons/fa';
 
 const AboutUs = () => {
+  const experiences = [
+    {
+      icon: <FaHeart className="w-12 h-12 text-custom" />,
+      title: "Intimate Boutique Setting",
+      description: "Experience personalized attention in our elegant, comfortable space where your dreams take center stage."
+    },
+    {
+      icon: <FaGem className="w-12 h-12 text-custom" />,
+      title: "Expert Craftsmanship",
+      description: "Our in-house alterations specialist brings 40 years of experience to ensure your perfect fit."
+    },
+    {
+      icon: <FaMagic className="w-12 h-12 text-custom" />,
+      title: "Curated Collections",
+      description: "Discover our handpicked selection of designer gowns, ranging from sizes 2-32, ensuring every bride finds their dream dress."
+    },
+    {
+      icon: <FaCrown className="w-12 h-12 text-custom" />,
+      title: "Royal Treatment",
+      description: "From your first appointment to your final fitting, enjoy a stress-free, memorable experience with our dedicated team."
+    }
+  ];
+
   return (
     <>
       <Helmet>
@@ -77,39 +101,49 @@ const AboutUs = () => {
                 </motion.div>
               </div>
 
-              {/* Values Section */}
+              {/* Experience Section */}
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
                 className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 rounded-2xl"
               >
-                <div className="max-w-3xl mx-auto text-center">
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-gray-900 mb-8">
-                    Our Values
+                <div className="text-center mb-16">
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-gray-900 mb-6">
+                    The About Love Experience
                   </h2>
-                  <div className="prose prose-lg mx-auto text-gray-600">
-                    <p className="mb-6">
-                      We understand that choosing your wedding dress is one of the most important decisions you'll make for your special day. That's why we provide:
+                  <div className="h-px w-24 bg-custom mx-auto"></div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  {experiences.map((item, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2 * (index + 1) }}
+                      className="group"
+                    >
+                      <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
+                        <div className="mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                          {item.icon}
+                        </div>
+                        <h3 className="text-xl font-serif text-gray-900 mb-4">
+                          {item.title}
+                        </h3>
+                        <p className="text-gray-600">
+                          {item.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                <div className="mt-16 text-center">
+                  <div className="max-w-3xl mx-auto">
+                    <p className="text-lg text-gray-600 italic">
+                      "We believe every bride deserves to feel beautiful, confident, and celebrated throughout their entire bridal journey."
                     </p>
-                    <ul className="text-left space-y-4 list-none pl-0">
-                      <li className="flex items-center">
-                        <span className="w-2 h-2 bg-custom rounded-full mr-3"></span>
-                        Personalized one-on-one consultations in a comfortable, pressure-free environment
-                      </li>
-                      <li className="flex items-center">
-                        <span className="w-2 h-2 bg-custom rounded-full mr-3"></span>
-                        Expert in-house alterations with decades of experience
-                      </li>
-                      <li className="flex items-center">
-                        <span className="w-2 h-2 bg-custom rounded-full mr-3"></span>
-                        A curated collection of designer gowns for every style and budget
-                      </li>
-                      <li className="flex items-center">
-                        <span className="w-2 h-2 bg-custom rounded-full mr-3"></span>
-                        Inclusive sizing and styles to celebrate every body type
-                      </li>
-                    </ul>
                   </div>
                 </div>
               </motion.div>

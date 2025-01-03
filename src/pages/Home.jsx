@@ -247,7 +247,7 @@ const Home = () => {
                 </a>
                 <button 
                   onClick={() => navigate('/contact')}
-                  className="px-8 py-3 border-2 border-gray-800 text-gray-800 rounded-full hover:bg-gray-800 hover:text-white transition-colors duration-300"
+                 className="px-8 py-3 border-2 border-gray-600 text-gray-600 rounded-full hover:border-custom hover:text-custom bg-white transition-colors duration-300"
                 >
                   Contact Us
                 </button>
