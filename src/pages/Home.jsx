@@ -1,51 +1,265 @@
 import React from 'react';
-import Header from '../components/Header';
-import Hero from '../components/Hero';
-import Footer from '../components/Footer';
-import QuinceaneraLanding from '../components/QuinceaneraLanding';
+import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import { motion } from 'framer-motion';
+import { FaHeart, FaCrown, FaGem, FaCalendarAlt } from 'react-icons/fa';
+import { TestimonialsSection, InstagramFeed } from '../components/EnhancedSections';
 
 const Home = () => {
+  const navigate = useNavigate();
+  
+  const collections = [
+    {
+      title: 'Wedding Collection',
+      description: 'Find your dream wedding dress',
+      image: '/images/hero1.jpg',
+      path: '/dresses'
+    },
+    {
+      title: 'Quinceañera',
+      description: 'Make your special day unforgettable',
+      image: '/images/hero.jpg',
+      path: '/quinceanera'
+    },
+    {
+      title: 'Special Occasions',
+      description: 'Perfect dresses for every celebration',
+      image: '/images/image.JPG',
+      path: '/special-occasions'
+    }
+  ];
+
+  const features = [
+    {
+      icon: <FaHeart className="w-8 h-8 text-custom" />,
+      title: "Personalized Service",
+      description: "One-on-one attention from our expert consultants"
+    },
+    {
+      icon: <FaCrown className="w-8 h-8 text-custom" />,
+      title: "Luxury Experience",
+      description: "Premium designer collections in a beautiful setting"
+    },
+    {
+      icon: <FaGem className="w-8 h-8 text-custom" />,
+      title: "Expert Alterations",
+      description: "In-house tailoring for the perfect fit"
+    },
+    {
+      icon: <FaCalendarAlt className="w-8 h-8 text-custom" />,
+      title: "Private Appointments",
+      description: "Dedicated time for your bridal journey"
+    }
+  ];
+
   return (
     <>
       <Helmet>
-        <title>About Love Bridal - Dream Wedding Dresses</title>
-        <meta
-          name="description"
-          content="Explore stunning wedding dresses, quinceañera gowns, and formal wear at About Love Bridal."
+        <title>About Love Bridal - Luxury Wedding & Formal Wear</title>
+        <meta 
+          name="description" 
+          content="Discover exquisite wedding dresses, quinceañera gowns, and formal wear at About Love Bridal in Pembroke Pines, FL." 
         />
         <script type="application/ld+json">
           {`
             {
               "@context": "https://schema.org",
-              "@type": "Store",
+              "@type": "BridalShop",
               "name": "About Love Bridal and Formal",
+              "image": "/images/hero.jpg",
+              "url": "https://www.aboutlovebridal.com",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "1749 N University Dr",
                 "addressLocality": "Pembroke Pines",
                 "addressRegion": "FL",
-                "postalCode": "33024"
+                "postalCode": "33024",
+                "addressCountry": "US"
               },
-              "description": "We offer a variety of bridal dresses, quinceañera gowns, and more.",
-              "telephone": "+1-754-263-3480"
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 26.0245951,
+                "longitude": -80.2491858
+              },
+              "description": "Premier bridal boutique offering wedding dresses, quinceañera gowns, and formal wear",
+              "telephone": "+1-754-263-3480",
+              "openingHours": ["Mo-Sa 10:00-19:00"],
+              "priceRange": "$",
+              "paymentAccepted": ["cash", "credit card"],
+              "sameAs": [
+                "https://www.facebook.com/AboutLoveBridal",
+                "https://www.instagram.com/aboutlovebridal"
+              ]
             }
           `}
         </script>
       </Helmet>
-      <div>
+
+      <div className="min-h-screen bg-white">
         <Header />
-        <main>
-          <Hero />
-          <section aria-labelledby="quinceanera-section">
-            <h2 id="quinceanera-section" className="sr-only">Quinceañera Dresses Collection</h2>
-            <QuinceaneraLanding />
-          </section>
-        </main>
+        
+        {/* Hero Section */}
+        <section className="relative h-screen">
+          <div className="absolute inset-0 overflow-hidden">
+            <motion.div 
+              initial={{ scale: 1.2 }} 
+              animate={{ scale: 1 }} 
+              transition={{ duration: 1.5 }} 
+              className="w-full h-full"
+            >
+              <img 
+                src="/images/hero.jpg" 
+                alt="Elegant Wedding Dress" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
+            </motion.div>
+          </div>
+
+          <div className="relative container mx-auto px-6 h-full flex items-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              animate={{ opacity: 1, y: 0 }} 
+              transition={{ delay: 0.5, duration: 0.8 }} 
+              className="max-w-2xl"
+            >
+              <h1 className="text-5xl md:text-7xl font-serif text-gray-900 mb-6">
+                Your Perfect Dress Awaits
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-700 mb-8">
+                Experience luxury bridal collections and personalized service in our boutique
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button 
+                  onClick={() => navigate('/dresses')} 
+                  className="bg-custom hover:bg-customdark text-white text-lg px-8 py-3 rounded-full transition duration-300"
+                >
+                  View Collections
+                </button>
+                <a 
+                  href="https://book.squareup.com/appointments/pn1ik744tu6bkj/location/LR5XA5F05K6TY/services"
+                  className="bg-transparent border-2 border-gray-800 text-gray-800 hover:bg-custom hover:border-custom hover:text-white text-lg px-8 py-3 rounded-full transition duration-300 text-center"
+                >
+                  Book Appointment
+                </a>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Collections Section */}
+        <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+          <div className="container mx-auto px-6">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              transition={{ duration: 0.8 }} 
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl font-serif text-gray-900 mb-4">Our Collections</h2>
+              <div className="w-24 h-1 bg-custom mx-auto"></div>
+            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {collections.map((collection, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.2 }}
+                  viewport={{ once: true }}
+                  className="group relative h-96 overflow-hidden rounded-lg cursor-pointer shadow-lg"
+                  onClick={() => navigate(collection.path)}
+                >
+                  <img 
+                    src={collection.image} 
+                    alt={collection.title} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col justify-end p-6">
+                    <h3 className="text-2xl font-serif text-white mb-2">{collection.title}</h3>
+                    <p className="text-white/90">{collection.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-6">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              transition={{ duration: 0.8 }} 
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl font-serif text-gray-900 mb-4">
+                The About Love Experience
+              </h2>
+              <div className="w-24 h-1 bg-custom mx-auto"></div>
+            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {features.map((feature, index) => (
+                <motion.div 
+                  key={index} 
+                  initial={{ opacity: 0, y: 20 }} 
+                  whileInView={{ opacity: 1, y: 0 }} 
+                  transition={{ delay: index * 0.1 }} 
+                  viewport={{ once: true }}
+                  className="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <div className="mb-4">{feature.icon}</div>
+                    <h3 className="text-xl font-serif text-gray-900 mb-2">{feature.title}</h3>
+                    <p className="text-gray-600">{feature.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Enhanced Testimonials Section */}
+        <TestimonialsSection />
+
+        {/* Enhanced Instagram Feed */}
+        <InstagramFeed />
+
+        {/* CTA Section */}
+        <section className="py-20 bg-gradient-to-r from-custom/5 to-customdark/5">
+          <div className="container mx-auto px-6 text-center">
+            <div className="max-w-xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-serif text-gray-900 mb-6">
+                Find Your Perfect Dress
+              </h2>
+              <p className="text-lg text-gray-700 mb-8">
+                Schedule your appointment today for a personalized bridal experience
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <a 
+                  href="https://book.squareup.com/appointments/pn1ik744tu6bkj/location/LR5XA5F05K6TY/services"
+                  className="px-8 py-3 bg-custom text-white rounded-full hover:bg-customdark transition-colors duration-300"
+                >
+                  Book Appointment
+                </a>
+                <button 
+                  onClick={() => navigate('/contact')}
+                  className="px-8 py-3 border-2 border-gray-800 text-gray-800 rounded-full hover:bg-gray-800 hover:text-white transition-colors duration-300"
+                >
+                  Contact Us
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <Footer />
       </div>
     </>
   );
-}
+};
 
 export default Home;
