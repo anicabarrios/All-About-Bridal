@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <header className="bg-white py-4 shadow-lg fixed w-full z-50 top-0">
       <div className="container mx-auto flex justify-between items-center px-6 lg:px-12">
-        <h1 className="text-2xl md:text-4xl font-serif text-gray-900 tracking-tight mx-auto md:mx-0 md:text-left w-full md:w-auto text-center">
+        <h1 className="text-3xl md:text-4xl font-chopin text-gray-900 tracking-tighter mx-auto md:mx-0 md:text-left w-full md:w-auto text-center">
           About Love Bridal and Formal
         </h1>
         <nav className="hidden md:flex space-x-8 text-lg font-medium">
@@ -38,7 +38,7 @@ const Header = () => {
                 </ul>
               )}
             </li>
-            <li><a href="/quincanera" className="text-gray-700 hover:text-custom transition duration-300">Quinceanera</a></li>
+            <li><a href="/quinceanera" className="text-gray-700 hover:text-custom transition duration-300">Quinceañera</a></li>
             <li><a href="/special-occasions" className="text-gray-700 hover:text-custom transition duration-300">Special Occasions</a></li>
             <li><a href="/contact" className="text-gray-700 hover:text-custom transition duration-300">Contact</a></li>
           </ul>
@@ -46,15 +46,15 @@ const Header = () => {
         <div className="flex items-center space-x-4">
           <a
             href="https://book.squareup.com/appointments/pn1ik744tu6bkj/location/LR5XA5F05K6TY/services"
-            className="px-4 py-2 bg-custom text-white font-semibold rounded-md hidden md:block hover:bg-customdark transition duration-300"
+            className="px-4 py-2 bg-transparent border-2 border-gray-600 text-gray-600 font-semibold rounded-md hidden md:block hover:bg-white hover:text-customdark hover:border-customdark transition duration-300 ease-in-out"
           >
             Book an Appointment
           </a>
-          <a href="https://www.instagram.com/aboutlovebridal" className="text-gray-700 hover:text-custom transition duration-300">
-            <FaInstagram className="h-6 w-6" />
-          </a>
           <a href="https://www.facebook.com/AboutLoveBridal" className="text-gray-700 hover:text-custom transition duration-300">
             <FaFacebookF className="h-6 w-6" />
+          </a>
+          <a href="https://www.instagram.com/aboutlovebridal" className="text-gray-700 hover:text-custom transition duration-300">
+            <FaInstagram className="h-6 w-6" />
           </a>
         </div>
         <button 
@@ -81,12 +81,12 @@ const Header = () => {
             {isWeddingDropdownOpen && (
               <ul className="absolute left-1/2 transform -translate-x-1/2 bg-white shadow-lg rounded-md w-48 text-gray-700 text-center">
                 <li><a href="/dresses" className="block px-4 py-2 hover:bg-gray-100 transition duration-300">Bridal Gowns</a></li>
-                <li><a href="/dresses" className="block px-4 py-2 hover:bg-gray-100 transition duration-300">Mother of Bride</a></li>
-                <li><a href="/dresses" className="block px-4 py-2 hover:bg-gray-100 transition duration-300">Bridesmaids</a></li>
+                <li><a href="/wedding/mother-of-bride" className="block px-4 py-2 hover:bg-gray-100 transition duration-300">Mother of Bride</a></li>
+                <li><a href="/wedding/bridesmaids" className="block px-4 py-2 hover:bg-gray-100 transition duration-300">Bridesmaids</a></li>
               </ul>
             )}
           </li>
-          <li><a href="/quincanera" className="text-gray-700 hover:text-custom transition duration-300 block">Quinceanera</a></li>
+          <li><a href="/quinceanera" className="text-gray-700 hover:text-custom transition duration-300 block">Quinceanera</a></li>
           <li><a href="/special-occasions" className="text-gray-700 hover:text-custom transition duration-300 block">Special Occasions</a></li>
           <li><a href="/contact" className="text-gray-700 hover:text-custom transition duration-300 block">Contact</a></li>
           <li><a href="https://book.squareup.com/appointments/pn1ik744tu6bkj/location/LR5XA5F05K6TY/services" className="text-gray-700 hover:text-custom transition duration-300 block">Book an Appointment</a></li>

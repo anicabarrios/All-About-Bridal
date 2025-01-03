@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 const Hero = () => {
   const images = [
     '/images/hero.jpg',
     '/images/hero1.jpg',
     '/images/image.JPG',
     '/images/img.JPG'
-    
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate = useNavigate(); // Initialize the useNavigate hook
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -18,6 +18,10 @@ const Hero = () => {
 
     return () => clearInterval(interval);
   }, [images.length]);
+
+  const handleButtonClick = () => {
+    navigate('/dresses'); // Navigate to the Dresses page
+  };
 
   return (
     <section className="relative h-screen flex items-center justify-center">
@@ -35,7 +39,11 @@ const Hero = () => {
       <div className="relative container mx-auto px-6 lg:px-12 py-32 lg:py-40 flex flex-col items-center text-center text-gray-800 z-10">
         <h2 className="text-6xl md:text-8xl font-bold leading-tight tracking-tight mb-6">Discover Your Dream Dress</h2>
         <p className="text-xl md:text-3xl font-light mb-10">Elegance, Style and Unmatched Beauty for Your Special Day</p>
-        <button className="px-10 py-4 bg-custom text-white font-semibold rounded-full hover:bg-customdark transition duration-300 text-lg md:text-xl">Browse Collection</button>
+        <button 
+          onClick={handleButtonClick} // Add the onClick event
+          className="px-10 py-4 bg-custom text-white font-semibold rounded-full hover:bg-customdark transition duration-300 text-lg md:text-xl">
+          Browse Collection
+        </button>
       </div>
     </section>
   );

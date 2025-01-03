@@ -57,3 +57,10 @@
   .hero-content button:hover {
     background-color: #ff1a75;
   }
+  
+  @font-face {
+    font-family: 'Chopin Script';
+    src: url('/fonts/ChopinScript.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }

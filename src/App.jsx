@@ -1,23 +1,33 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import AboutUs from './pages/AboutUs';
-import Dresses from './pages/Dresses';
-import SpecialOccasions from './pages/SpecialOccasions';
-import Quinceanera from './pages/Quinceanera';
-import ContactPage from './pages/Contact';
+
+// Lazy load the components
+const Home = lazy(() => import('./pages/Home'));
+const AboutUs = lazy(() => import('./pages/AboutUs'));
+const Dresses = lazy(() => import('./pages/Dresses'));
+const SpecialOccasions = lazy(() => import('./pages/SpecialOccasions'));
+const Quinceanera = lazy(() => import('./pages/Quinceanera'));
+const ContactPage = lazy(() => import('./pages/Contact'));
+const MotherOfBride = lazy(() => import('./pages/MotherOfBride'));
+const Bridesmaids = lazy(() => import('./pages/Bridesmaids'));
+const Detail = lazy(() => import('./pages/Detail'));
+
 const App = () => {
   return (
     <Router>
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/dresses" element={<Dresses />} />
-        <Route path="/special-occasions" element={< SpecialOccasions/>} />
-        <Route path="/quincanera" element={< Quinceanera/>} />
-        <Route path="/contact" element={< ContactPage/>} />
-        {/* Add more routes as needed */}
-      </Routes>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/dresses" element={<Dresses />} />
+          <Route path="/special-occasions" element={<SpecialOccasions />} />
+          <Route path="/quinceanera" element={<Quinceanera />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/wedding/mother-of-bride" element={<MotherOfBride />} />
+          <Route path="/wedding/bridesmaids" element={<Bridesmaids />} />
+          <Route path="/detail/:id" element={<Detail />} />
+        </Routes>
+      </Suspense>
     </Router>
   );
 }
