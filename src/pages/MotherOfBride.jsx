@@ -1,9 +1,10 @@
 import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Helmet } from 'react-helmet';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Card from '../components/Card';
 import { allData } from '../data/allData';
-import { Helmet } from 'react-helmet';
 
 const MotherOfBride = () => {
   const motherOfBrideData = allData.filter(item => item.category === 'Mother of the Bride');
@@ -11,26 +12,65 @@ const MotherOfBride = () => {
   return (
     <>
       <Helmet>
-        <title>Mother of the Bride Dresses - About Love Bridal</title>
+        <title>Mother of the Bride - About Love Bridal</title>
         <meta
           name="description"
           content="Shop for beautiful and elegant Mother of the Bride dresses at About Love Bridal."
         />
       </Helmet>
-      <div>
+      <div className="min-h-screen bg-white">
         <Header />
-        <section className="py-24 bg-white">
-          <div className="container mx-auto px-6 lg:px-12 text-center">
-            <h1 className="text-2xl md:text-5xl font-bold leading-tight tracking-tight mb-12 pt-5 text-gray-900">
-              Mother of the Bride Dresses
-            </h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-              {motherOfBrideData.map(dress => (
-                <Card key={dress.id} id={dress.id} image={dress.images[0]} name={dress.name} category={dress.category} />
-              ))}
+
+        <main>
+          {/* Header Section with Gradient Background */}
+          <section className="relative h-48 md:h-64 lg:h-80 bg-gradient-to-r from-custom/10 to-customdark/10 overflow-hidden">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="container mx-auto px-4 h-full flex items-center justify-center text-center"
+            >
+              <div>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif text-gray-900 mb-4">
+                  Mother of the Bride
+                </h1>
+                <div className="w-24 h-1 bg-custom mx-auto"></div>
+              </div>
+            </motion.div>
+          </section>
+
+          {/* Dresses Grid Section */}
+          <section className="py-16 bg-white">
+            <div className="container mx-auto px-4">
+              {/* Dresses Grid */}
+              <motion.div 
+                layout
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+              >
+                <AnimatePresence mode="popLayout">
+                  {motherOfBrideData.map(dress => (
+                    <motion.div
+                      key={dress.id}
+                      layout
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <Card
+                        id={dress.id}
+                        image={dress.images[0]}
+                        name={dress.name}
+                        category={dress.category}
+                      />
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </motion.div>
             </div>
-          </div>
-        </section>
+          </section>
+        </main>
+
         <Footer />
       </div>
     </>
