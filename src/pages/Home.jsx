@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
 import { FaHeart, FaCrown, FaGem, FaCalendarAlt } from 'react-icons/fa';
 import { TestimonialsSection, InstagramFeed } from '../components/EnhancedSections';
-
+import DesignerShowcase from '../components/Designers/designers';
 const Home = () => {
   const navigate = useNavigate();
   
@@ -52,8 +52,9 @@ const Home = () => {
       title: "Private Appointments",
       description: "Dedicated time for your bridal journey"
     }
+    
   ];
-
+  
   return (
     <>
       <Helmet>
@@ -187,41 +188,7 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Features Section */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-6">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              transition={{ duration: 0.8 }} 
-              className="text-center mb-16"
-            >
-              <h2 className="text-4xl font-serif text-gray-900 mb-4">
-                The About Love Experience
-              </h2>
-              <div className="w-24 h-1 bg-custom mx-auto"></div>
-            </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {features.map((feature, index) => (
-                <motion.div 
-                  key={index} 
-                  initial={{ opacity: 0, y: 20 }} 
-                  whileInView={{ opacity: 1, y: 0 }} 
-                  transition={{ delay: index * 0.1 }} 
-                  viewport={{ once: true }}
-                  className="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
-                >
-                  <div className="flex flex-col items-center text-center">
-                    <div className="mb-4">{feature.icon}</div>
-                    <h3 className="text-xl font-serif text-gray-900 mb-2">{feature.title}</h3>
-                    <p className="text-gray-600">{feature.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
+        <DesignerShowcase />
         {/* Enhanced Testimonials Section */}
         <TestimonialsSection />
 
