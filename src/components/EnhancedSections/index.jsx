@@ -8,21 +8,21 @@ const testimonials = [
     role: "Bride",
     content: "Found my perfect dress with incredible service. The staff made me feel like family!",
     rating: 5,
-    image: "/images/1.jpg"
+    image: "/images/1.webp"
   },
   {
     name: "Maria Rodriguez",
     role: "Quinceañera",
     content: "My dream dress for my special day. Thank you About Love Bridal!",
     rating: 5,
-    image: "/images/2.jpg"
+    image: "/images/2.webp"
   },
   {
     name: "Emily Davis",
     role: "Mother of the Bride",
     content: "Exceptional selection and attention to detail. Highly recommend!",
     rating: 5,
-    image: "/images/3.jpg"
+    image: "/images/3.webp"
   }
 ];
 

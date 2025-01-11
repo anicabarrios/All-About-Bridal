@@ -73,9 +73,9 @@ const AboutUs = () => {
                   className="relative"
                 >
                   <img
-                    src="/images/hero1.jpg"
+                    src="/images/287.webp"
                     alt="About Love Bridal Store"
-                    className="w-full h-[400px] lg:h-[600px] object-cover rounded-lg shadow-xl"
+                    className="w-full h-[400px] lg:h-[600px] object-center rounded-lg shadow-xl"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-lg"></div>
                 </motion.div>
@@ -166,7 +166,7 @@ const AboutUs = () => {
               Schedule your appointment today and let us help you find the dress of your dreams.
             </p>
             <a
-              href="https://book.squareup.com/appointments"
+              href="https://book.squareup.com/appointments/pn1ik744tu6bkj/location/LR5XA5F05K6TY/services"
               className="inline-block px-8 py-3 bg-custom text-white rounded-full hover:bg-customdark transition-colors duration-300"
             >
               Book an Appointment

@@ -7,26 +7,27 @@ import { motion } from 'framer-motion';
 import { FaHeart, FaCrown, FaGem, FaCalendarAlt } from 'react-icons/fa';
 import { TestimonialsSection, InstagramFeed } from '../components/EnhancedSections';
 import DesignerShowcase from '../components/Designers/designers';
+import Hero from '../components/Hero';
 const Home = () => {
   const navigate = useNavigate();
-  
+
   const collections = [
     {
       title: 'Wedding Collection',
       description: 'Find your dream wedding dress',
-      image: '/images/hero1.jpg',
+      image: '/images/304.webp',
       path: '/dresses'
     },
     {
       title: 'Quinceañera',
       description: 'Make your special day unforgettable',
-      image: '/images/hero.jpg',
+      image: '/images/1.webp',
       path: '/quinceanera'
     },
     {
       title: 'Special Occasions',
       description: 'Perfect dresses for every celebration',
-      image: '/images/image.JPG',
+      image: '/images/301.webp',
       path: '/special-occasions'
     }
   ];
@@ -52,16 +53,16 @@ const Home = () => {
       title: "Private Appointments",
       description: "Dedicated time for your bridal journey"
     }
-    
+
   ];
-  
+
   return (
     <>
       <Helmet>
         <title>About Love Bridal - Luxury Wedding & Formal Wear</title>
-        <meta 
-          name="description" 
-          content="Discover exquisite wedding dresses, quinceañera gowns, and formal wear at About Love Bridal in Pembroke Pines, FL." 
+        <meta
+          name="description"
+          content="Discover exquisite wedding dresses, quinceañera gowns, and formal wear at About Love Bridal in Pembroke Pines, FL."
         />
         <script type="application/ld+json">
           {`
@@ -69,7 +70,7 @@ const Home = () => {
               "@context": "https://schema.org",
               "@type": "BridalShop",
               "name": "About Love Bridal and Formal",
-              "image": "/images/hero.jpg",
+              "image": "/images/298.webp",
               "url": "https://www.aboutlovebridal.com",
               "address": {
                 "@type": "PostalAddress",
@@ -100,63 +101,17 @@ const Home = () => {
 
       <div className="min-h-screen bg-white">
         <Header />
-        
-        {/* Hero Section */}
-        <section className="relative h-screen">
-          <div className="absolute inset-0 overflow-hidden">
-            <motion.div 
-              initial={{ scale: 1.2 }} 
-              animate={{ scale: 1 }} 
-              transition={{ duration: 1.5 }} 
-              className="w-full h-full"
-            >
-              <img 
-                src="/images/hero.jpg" 
-                alt="Elegant Wedding Dress" 
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
-            </motion.div>
-          </div>
 
-          <div className="relative container mx-auto px-6 h-full flex items-center">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} 
-              animate={{ opacity: 1, y: 0 }} 
-              transition={{ delay: 0.5, duration: 0.8 }} 
-              className="max-w-2xl"
-            >
-              <h1 className="text-5xl md:text-7xl font-serif text-gray-900 mb-6">
-                Your Perfect Dress Awaits
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-700 mb-8">
-                Experience luxury bridal collections and personalized service in our boutique
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button 
-                  onClick={() => navigate('/dresses')} 
-                  className="bg-custom hover:bg-customdark text-white text-lg px-8 py-3 rounded-full transition duration-300"
-                >
-                  View Collections
-                </button>
-                <a 
-                  href="https://book.squareup.com/appointments/pn1ik744tu6bkj/location/LR5XA5F05K6TY/services"
-                  className="bg-transparent border-2 border-gray-800 text-gray-800 hover:bg-custom hover:border-custom hover:text-white text-lg px-8 py-3 rounded-full transition duration-300 text-center"
-                >
-                  Book Appointment
-                </a>
-              </div>
-            </motion.div>
-          </div>
-        </section>
+        {/* Hero Section */}
+        <Hero />
 
         {/* Collections Section */}
         <section className="py-20 bg-gradient-to-b from-white to-gray-50">
           <div className="container mx-auto px-6">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              transition={{ duration: 0.8 }} 
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
               className="text-center mb-16"
             >
               <h2 className="text-4xl font-serif text-gray-900 mb-4">Our Collections</h2>
@@ -173,9 +128,9 @@ const Home = () => {
                   className="group relative h-96 overflow-hidden rounded-lg cursor-pointer shadow-lg"
                   onClick={() => navigate(collection.path)}
                 >
-                  <img 
-                    src={collection.image} 
-                    alt={collection.title} 
+                  <img
+                    src={collection.image}
+                    alt={collection.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col justify-end p-6">
@@ -206,15 +161,15 @@ const Home = () => {
                 Schedule your appointment today for a personalized bridal experience
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <a 
+                <a
                   href="https://book.squareup.com/appointments/pn1ik744tu6bkj/location/LR5XA5F05K6TY/services"
                   className="px-8 py-3 bg-custom text-white rounded-full hover:bg-customdark transition-colors duration-300"
                 >
                   Book Appointment
                 </a>
-                <button 
+                <button
                   onClick={() => navigate('/contact')}
-                 className="px-8 py-3 border-2 border-gray-600 text-gray-600 rounded-full hover:border-custom hover:text-custom bg-white transition-colors duration-300"
+                  className="px-8 py-3 border-2 border-gray-600 text-gray-600 rounded-full hover:border-custom hover:text-custom bg-white transition-colors duration-300"
                 >
                   Contact Us
                 </button>

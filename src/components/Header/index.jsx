@@ -81,7 +81,7 @@ const Header = () => {
         <div className="flex items-center space-x-4">
           {/* Desktop CTA */}
           <a
-            href="https://book.squareup.com/appointments"
+            href="https://book.squareup.com/appointments/pn1ik744tu6bkj/location/LR5XA5F05K6TY/services"
             className="hidden lg:inline-flex px-4 py-2 bg-transparent border-2 border-gray-600 text-gray-600 
                      font-semibold rounded-md hover:bg-white hover:text-customdark hover:border-customdark 
                      transition-colors duration-300 whitespace-nowrap"
@@ -91,10 +91,10 @@ const Header = () => {
 
           {/* Social Icons - Hidden on mobile */}
           <div className="hidden sm:flex items-center space-x-3">
-            <a href="https://www.facebook.com" className="text-gray-700 hover:text-custom transition-colors duration-300">
+            <a href="https://www.facebook.com/AboutLoveBridal" className="text-gray-700 hover:text-custom transition-colors duration-300">
               <FaFacebookF className="w-5 h-5" />
             </a>
-            <a href="https://www.instagram.com" className="text-gray-700 hover:text-custom transition-colors duration-300">
+            <a href="https://www.instagram.com/aboutlovebridal" className="text-gray-700 hover:text-custom transition-colors duration-300">
               <FaInstagram className="w-5 h-5" />
             </a>
           </div>
@@ -187,7 +187,7 @@ const Header = () => {
 
           {/* Mobile CTA */}
           <a
-            href="https://book.squareup.com/appointments"
+            href="https://book.squareup.com/appointments/pn1ik744tu6bkj/location/LR5XA5F05K6TY/services"
             className="block mt-4 text-center py-3 px-4 bg-custom text-white rounded-lg hover:bg-customdark transition-colors duration-300"
           >
             Book an Appointment

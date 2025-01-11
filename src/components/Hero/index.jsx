@@ -1,100 +1,60 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
-  const images = [
-    '/images/hero.jpg',
-    '/images/hero1.jpg',
-    '/images/image.JPG',
-    '/images/img.JPG'
-  ];
-
-  const [currentIndex, setCurrentIndex] = useState(0);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [images.length]);
-
-  const handleButtonClick = () => {
-    navigate('/dresses');
-  };
-
   return (
-    <section className="relative min-h-[600px] h-screen w-full">
-      {/* Image Slider Container */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden">
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 w-full h-full transition-opacity duration-1000 
-              ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
-          >
-            <div 
-              className="w-full h-full bg-cover bg-center"
-              style={{ backgroundImage: `url(${image})` }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent" />
-          </div>
-        ))}
-      </div>
-
-      {/* Content Container */}
-      <div className="relative h-full flex items-center">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl sm:text-6xl lg:text-8xl font-bold text-gray-900 mb-4 sm:mb-6 
-              tracking-tight leading-tight">
-              Discover Your Dream Dress
-            </h1>
-            
-            <p className="text-lg sm:text-xl lg:text-3xl text-gray-700 mb-8 sm:mb-10 
-              max-w-2xl mx-auto leading-relaxed">
-              Elegance, Style and Unmatched Beauty for Your Special Day
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={handleButtonClick}
-                className="px-6 sm:px-8 lg:px-10 py-3 sm:py-4 bg-custom text-white 
-                  font-semibold rounded-full hover:bg-customdark transition-all duration-300 
-                  text-base sm:text-lg lg:text-xl transform hover:scale-105 active:scale-95
-                  shadow-lg hover:shadow-xl"
-              >
-                Browse Collection
-              </button>
-              
-              <a
-                href="https://book.squareup.com/appointments"
-                className="px-6 sm:px-8 lg:px-10 py-3 sm:py-4 border-2 border-gray-800 
-                  text-gray-800 font-semibold rounded-full hover:bg-gray-800 hover:text-white 
-                  transition-all duration-300 text-base sm:text-lg lg:text-xl transform 
-                  hover:scale-105 active:scale-95"
-              >
-                Book Appointment
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Navigation Dots */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 
-              ${index === currentIndex 
-                ? 'w-6 bg-custom' 
-                : 'bg-gray-400 hover:bg-custom/70'}`}
-            aria-label={`Go to slide ${index + 1}`}
+    <section className="relative h-screen">
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div 
+          initial={{ scale: 1.2 }} 
+          animate={{ scale: 1 }} 
+          transition={{ duration: 1.5 }} 
+          className="w-full h-full"
+        >
+          <img 
+            src="/images/hero1.jpg" 
+            alt="Elegant Wedding Dress" 
+            className="w-full h-full object-cover object-center"
           />
-        ))}
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent"></div>
+        </motion.div>
+      </div>
+
+      <div className="relative container mx-auto px-6 h-full flex items-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ delay: 0.5, duration: 0.8 }} 
+          className="max-w-2xl"
+        >
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-serif text-gray-900 mb-6">
+            Your Perfect Dress Awaits
+          </h1>
+          <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 mb-8">
+            Experience luxury bridal collections and personalized service in our boutique
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <button 
+              onClick={() => navigate('/dresses')} 
+              className="bg-custom hover:bg-customdark text-white text-base sm:text-lg px-6 sm:px-8 py-3 
+                rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95
+                shadow-lg hover:shadow-xl"
+            >
+              View Collections
+            </button>
+            <a 
+              href="https://book.squareup.com/appointments/pn1ik744tu6bkj/location/LR5XA5F05K6TY/services"
+              className="bg-transparent border-2 border-gray-800 text-gray-800 hover:bg-gray-800 
+                hover:text-white text-base sm:text-lg px-6 sm:px-8 py-3 rounded-full 
+                transition-all duration-300 text-center transform hover:scale-105 active:scale-95"
+            >
+              Book Appointment
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

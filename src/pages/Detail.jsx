@@ -139,7 +139,8 @@ const Detail = () => {
                       {/* Call to Action */}
                       <div className="flex gap-4 mb-8">
                         <a
-                          href="https://book.squareup.com/appointments"
+                          href= "https://book.squareup.com/appointments/pn1ik744tu6bkj/location/LR5XA5F05K6TY/services"
+
                           className="group flex-1 inline-flex justify-center items-center px-6 py-3 
                             bg-custom text-white rounded-full hover:bg-customdark 
                             transition-all duration-300 shadow-sm hover:shadow-md
