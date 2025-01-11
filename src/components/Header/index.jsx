@@ -51,7 +51,7 @@ const Header = () => {
         </div>
 
         {/* Desktop Navigation - Hidden on mobile */}
-        <nav className="hidden lg:flex flex-grow justify-center">
+        <nav className="hidden lg:flex flex-grow justify-between">
           <ul className="flex items-center space-x-6 xl:space-x-8 text-base xl:text-lg font-medium">
             <li><a href="/" className="text-gray-700 hover:text-custom transition-colors duration-300">Home</a></li>
             <li><a href="/about-us" className="text-gray-700 hover:text-custom transition-colors duration-300">About Us</a></li>
@@ -73,6 +73,7 @@ const Header = () => {
             </li>
             <li><a href="/quinceanera" className="text-gray-700 hover:text-custom transition-colors duration-300">Quinceañera</a></li>
             <li><a href="/special-occasions" className="text-gray-700 hover:text-custom transition-colors duration-300">Special Occasions</a></li>
+            <li><a href="/new-arrivals" className="text-gray-700 hover:text-custom transition-colors duration-300">New Arrivals</a></li>
             <li><a href="/contact" className="text-gray-700 hover:text-custom transition-colors duration-300">Contact</a></li>
           </ul>
         </nav>
@@ -168,6 +169,9 @@ const Header = () => {
           </a>
           <a href="/special-occasions" className="block py-2 px-4 text-gray-700 hover:bg-gray-50 hover:text-custom transition-colors duration-300 rounded-lg">
             Special Occasions
+          </a>
+          <a href="/new-arrivals" className="block py-2 px-4 text-gray-700 hover:bg-gray-50 hover:text-custom transition-colors duration-300 rounded-lg">
+            New Arrivals
           </a>
           <a href="/contact" className="block py-2 px-4 text-gray-700 hover:bg-gray-50 hover:text-custom transition-colors duration-300 rounded-lg">
             Contact

@@ -57,10 +57,27 @@ const allData = [
 
 
 
+
+ 
   {
-    id: 5, category: 'Ball Gown', name: 'Beautiful Ball Gown',
-    images: ['/images/4.webp', '/images/5.webp', '/images/image6.webp']
+    id: 79,
+    category: 'Ball Gown',
+    name: "Cinderella's Charm",
+    images: ['/images/325.webp', '/images/326.webp', '/images/327.webp', '/images/328.webp']
   },
+  {
+    id: 80,
+    category: 'Ball Gown',
+    name: 'Royal Romance',
+    images: ['/images/329.webp', '/images/330.webp', '/images/331.webp', '/images/332.webp']
+  },
+  {
+    id: 81,
+    category: 'Ball Gown',
+    name: 'Belle of the Ball',
+    images: ['/images/333.webp', '/images/334.webp', '/images/335.webp', '/images/336.webp']
+  },
+
 
   {
     id: 6, category: 'Fit&Flare', name: 'Stunning Mermaid',
@@ -328,15 +345,14 @@ const allData = [
     id: 77, category: 'Evening/Prom', name: 'Elegant Evening Gown',
     images: ['/images/143.webp', '/images/144.webp']
   },
+  
+  
 
 
-
-
-
-  {
-    id: 7, category: 'Cocktail/Homecoming', name: 'Stylish Cocktail Dress',
-    images: ['/images/5.webp', '/images/cocktail2.webp', '/images/cocktail3.webp']
-  },
+  // {
+  //   id: 7, category: 'Cocktail/Homecoming', name: 'Stylish Cocktail Dress',
+  //   images: ['/images/5.webp', '/images/cocktail2.webp', '/images/cocktail3.webp']
+  // },
   // Mother of the Bride
   {
     id: 8, category: 'Mother of the Bride', name: 'Graceful Mother of the Bride Dress',
@@ -356,6 +372,54 @@ const allData = [
     images: ['/images/4.webp', '/images/bridesmaid5.webp', '/images/bridesmaid6.webp']
   },
   // Add more items here
+
+
+// New items with 'new' category
+{ id: 5, category: 'new', name: 'New Spring Collection', 
+  images: ['/images/321.webp', '/images/374.webp', '/images/375.webp'] },
+{ id: 78, category: 'new', name: 'Fairytale Dreams',images: ['/images/322.webp', '/images/323.webp', '/images/324.webp'] },
+{ id: 82, category: 'new', name: 'New Season Ball Gown',images: ['/images/337.webp', '/images/338.webp', '/images/339.webp', '/images/340.webp'] },
+// Add more new items as needed
+
+{
+  id: 83,category: 'new', name: 'Elegant Evening Gown',
+  images: ['/images/341.webp', '/images/342.webp', '/images/343.webp', '/images/344.webp']
+},
+{
+  id: 84, category: 'new', name: 'Elegant Evening Gown',
+  images: ['/images/345.webp', '/images/346.webp', '/images/347.webp']
+},
+{
+  id: 85, category: 'new', name: 'Elegant Evening Gown',
+  images: ['/images/348.webp', '/images/349.webp', '/images/350.webp', '/images/351.webp', '/images/352.webp', '/images/353.webp', '/images/354.webp', '/images/355.webp']
+},
+{
+  id: 86, category: 'new', name: 'Elegant Evening Gown',
+  images: ['/images/356.webp', '/images/357.webp']
+},
+{
+  id: 87,category: 'new', name: 'Elegant Evening Gown',
+  images: ['/images/358.webp', '/images/359.webp']
+},
+{
+  id: 88, category: 'new', name: 'Elegant Evening Gown',
+  images: ['/images/360.webp', '/images/361.webp']
+},
+{
+  id: 89, category: 'new', name: 'Elegant Evening Gown',
+  images: ['/images/362.webp', '/images/363.webp']
+},
+{
+  id: 90, category: 'new', name: 'Elegant Evening Gown',
+  images: ['/images/364.webp', '/images/365.webp']
+},
+{
+  id: 91, category: 'new', name: 'Elegant Evening Gown',
+  images: ['/images/366.webp', '/images/367.webp', '/images/368.webp', '/images/369.webp', '/images/370.webp', '/images/371.webp', '/images/372.webp', '/images/373.webp']
+},
+
+
+
 ];
 
 const categories = ['All', 'A-Line', 'Ball Gown', 'Fit&Flare', 'Dresses', 'Accessories', 'Evening/Prom', 'Cocktail/Homecoming'];

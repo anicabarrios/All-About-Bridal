@@ -27,7 +27,7 @@ const Home = () => {
     {
       title: 'Special Occasions',
       description: 'Perfect dresses for every celebration',
-      image: '/images/301.webp',
+      image: '/images/102.webp',
       path: '/special-occasions'
     }
   ];

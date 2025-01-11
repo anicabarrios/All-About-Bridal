@@ -11,7 +11,7 @@ const ContactPage = lazy(() => import('./pages/Contact'));
 const MotherOfBride = lazy(() => import('./pages/MotherOfBride'));
 const Bridesmaids = lazy(() => import('./pages/Bridesmaids'));
 const Detail = lazy(() => import('./pages/Detail'));
-
+const NewArrivals = lazy (() =>import ('./pages/NewArrivals'))
 const App = () => {
   return (
     <Router>
@@ -26,6 +26,7 @@ const App = () => {
           <Route path="/wedding/mother-of-bride" element={<MotherOfBride />} />
           <Route path="/wedding/bridesmaids" element={<Bridesmaids />} />
           <Route path="/detail/:id" element={<Detail />} />
+          <Route path="/new-arrivals" element={<NewArrivals />} />
         </Routes>
       </Suspense>
     </Router>
