@@ -204,10 +204,7 @@ const allData = [
   },
  
   
-  // {
-  //   id: 5, category: 'Accessories', name: 'Beautiful Tiara',
-  //   images: ['/images/2.webp', '/images/3.webp', '/images/4.webp']
-  // },
+ 
   // Special Occasions
   {
     id: 44, category: 'Evening/Prom', name: 'Elegant Evening Gown',
@@ -347,31 +344,7 @@ const allData = [
   },
   
   
-
-
-  // {
-  //   id: 7, category: 'Cocktail/Homecoming', name: 'Stylish Cocktail Dress',
-  //   images: ['/images/5.webp', '/images/cocktail2.webp', '/images/cocktail3.webp']
-  // },
-  // Mother of the Bride
-  {
-    id: 8, category: 'Mother of the Bride', name: 'Graceful Mother of the Bride Dress',
-    images: ['/images/1.webp', '/images/2.webp', '/images/mother3.webp']
-  },
-  {
-    id: 9, category: 'Mother of the Bride', name: 'Chic Mother of the Bride Gown',
-    images: ['/images/mother4.webp', '/images/mother5.webp', '/images/mother6.webp']
-  },
   // Bridesmaids
-  {
-    id: 10, category: 'Bridesmaids', name: 'Elegant Bridesmaid Dress',
-    images: ['/images/1.webp', '/images/2.webp', '/images/3.webp']
-  },
-  {
-    id: 11, category: 'Bridesmaids', name: 'Charming Bridesmaid Gown',
-    images: ['/images/4.webp', '/images/bridesmaid5.webp', '/images/bridesmaid6.webp']
-  },
-  // Add more items here
 
 
 // New items with 'new' category
@@ -422,6 +395,6 @@ const allData = [
 
 ];
 
-const categories = ['All', 'A-Line', 'Ball Gown', 'Fit&Flare', 'Dresses', 'Accessories', 'Evening/Prom', 'Cocktail/Homecoming'];
+const categories = ['All', 'A-Line', 'Ball Gown', 'Fit&Flare', 'Dresses', , 'Evening/Prom'];
 
 export { allData, categories };

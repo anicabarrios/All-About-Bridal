@@ -1,13 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from '../components/Header/index';
+import Footer from '../components/Footer/index';
 import { motion } from 'framer-motion';
 import { FaHeart, FaCrown, FaGem, FaCalendarAlt } from 'react-icons/fa';
-import { TestimonialsSection, InstagramFeed } from '../components/EnhancedSections';
-import DesignerShowcase from '../components/Designers/designers';
-import Hero from '../components/Hero';
+import { TestimonialsSection, InstagramFeed } from '../components/Sections/index';
+import NewArrivals from '../components/NewArrivals/index';
+import Hero from '../components/Hero/index';
+
 const Home = () => {
   const navigate = useNavigate();
 
@@ -53,7 +54,6 @@ const Home = () => {
       title: "Private Appointments",
       description: "Dedicated time for your bridal journey"
     }
-
   ];
 
   return (
@@ -115,7 +115,8 @@ const Home = () => {
               className="text-center mb-16"
             >
               <h2 className="text-4xl font-serif text-gray-900 mb-4">Our Collections</h2>
-              <div className="w-24 h-1 bg-custom mx-auto"></div>
+              {/* Updated underline styling to match About Us page */}
+              <div className="w-24 h-1 mx-auto bg-gradient-to-r from-transparent via-custom to-transparent"></div>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {collections.map((collection, index) => (
@@ -143,7 +144,44 @@ const Home = () => {
           </div>
         </section>
 
-        <DesignerShowcase />
+        {/* New Arrivals Section */}
+        <NewArrivals />
+
+        {/* Features Section */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl font-serif text-gray-900 mb-4">The About Love Experience</h2>
+              {/* Updated underline styling to match About Us page */}
+              <div className="w-24 h-1 mx-auto bg-gradient-to-r from-transparent via-custom to-transparent"></div>
+            </motion.div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {features.map((feature, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 text-center"
+                >
+                  <div className="mx-auto flex items-center justify-center w-16 h-16 bg-custom/10 rounded-full mb-6">
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-xl font-serif text-gray-900 mb-4">{feature.title}</h3>
+                  <p className="text-gray-600">{feature.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Enhanced Testimonials Section */}
         <TestimonialsSection />
 
@@ -157,6 +195,8 @@ const Home = () => {
               <h2 className="text-3xl md:text-4xl font-serif text-gray-900 mb-6">
                 Find Your Perfect Dress
               </h2>
+              {/* Updated underline styling to match About Us page - smaller width for smaller heading */}
+              <div className="w-20 h-1 mx-auto bg-gradient-to-r from-transparent via-custom to-transparent mb-6"></div>
               <p className="text-lg text-gray-700 mb-8">
                 Schedule your appointment today for a personalized bridal experience
               </p>

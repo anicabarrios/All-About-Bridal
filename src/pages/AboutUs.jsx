@@ -48,22 +48,24 @@ const AboutUs = () => {
           
           <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-12 lg:mb-16">
-                <motion.h1 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  className="text-3xl sm:text-4xl lg:text-5xl font-serif text-gray-900 mb-6"
-                >
+              {/* Updated Header Section with the same decoration as Contact page */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-center mb-12 lg:mb-16 relative"
+              >
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <FaHeart className="text-custom h-8 w-8 opacity-20" />
+                </div>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-gray-900 mb-4">
                   Our Story
-                </motion.h1>
-                <motion.div 
-                  initial={{ opacity: 0, width: 0 }}
-                  animate={{ opacity: 1, width: "100%" }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className="h-px max-w-xs mx-auto bg-custom"
-                />
-              </div>
+                </h1>
+                <div className="w-24 h-1 mx-auto bg-gradient-to-r from-transparent via-custom to-transparent mb-6"></div>
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                  Discover the passion and dedication behind About Love Bridal and our journey to help brides find their perfect dress.
+                </p>
+              </motion.div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-20">
                 <motion.div 
@@ -75,7 +77,7 @@ const AboutUs = () => {
                   <img
                     src="/images/287.webp"
                     alt="About Love Bridal Store"
-                    className="w-full h-[400px] lg:h-[600px] object-center rounded-lg shadow-xl"
+                    className="w-full h-[400px] lg:h-[600px] object-cover rounded-lg shadow-xl"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-lg"></div>
                 </motion.div>
@@ -112,7 +114,7 @@ const AboutUs = () => {
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-gray-900 mb-6">
                     The About Love Experience
                   </h2>
-                  <div className="h-px w-24 bg-custom mx-auto"></div>
+                  <div className="w-24 h-1 mx-auto bg-gradient-to-r from-transparent via-custom to-transparent"></div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

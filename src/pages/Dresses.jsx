@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Card from '../components/Card';
 import { allData } from '../data/allData';
+import { FaHeart } from 'react-icons/fa';
 
 const dressCategories = ['All', 'A-Line', 'Ball Gown', 'Fit&Flare'];
 
@@ -32,18 +33,23 @@ const Dresses = () => {
         <Header />
 
         <main>
-          <section className="relative h-48 md:h-64 lg:h-80 bg-gradient-to-r from-custom/10 to-customdark/10 overflow-hidden">
+          {/* Updated Header Section with consistent decoration */}
+          <section className="relative h-auto pt-24 pb-10 lg:pt-32 lg:pb-16 bg-gradient-to-r from-custom/10 to-customdark/10 overflow-hidden">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="container mx-auto px-4 h-full flex items-center justify-center text-center"
+              className="container mx-auto px-4 flex items-center justify-center text-center"
             >
-              <div>
+              <div className="relative">
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <FaHeart className="text-custom h-8 w-8 opacity-20" />
+                </div>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif text-gray-900 mb-4">
                   Wedding Dresses
                 </h1>
-                <div className="w-24 h-1 bg-custom mx-auto"></div>
+                <div className="w-24 h-1 mx-auto bg-gradient-to-r from-transparent via-custom to-transparent mb-6"></div>
+                
               </div>
             </motion.div>
           </section>
