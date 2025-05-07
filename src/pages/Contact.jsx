@@ -1,12 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaHeart, FaRegPaperPlane } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+
+const EMAILJS_SERVICE_ID = 'service_vjkbzlh'; 
+const EMAILJS_TEMPLATE_ID = 'template_odhm3wc'; 
+const EMAILJS_PUBLIC_KEY = '1wrPC41moiruYGPwQ'; 
 
 const Contact = () => {
   const [dateValue, setDateValue] = useState('');
   const [formStatus, setFormStatus] = useState({ type: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [debug, setDebug] = useState('');
+  const formRef = useRef();
 
   const handleDateChange = (e) => {
     setDateValue(e.target.value);
@@ -14,19 +22,60 @@ const Contact = () => {
 
   const sendEmail = async (e) => {
     e.preventDefault();
+
+    if (isSubmitting) return;
+    
+    setIsSubmitting(true);
+    setDebug(''); 
+    
     try {
-      // Email sending logic here
-      setFormStatus({
-        type: 'success',
-        message: 'Message sent successfully! We will get back to you soon.'
-      });
-      e.target.reset();
-      setDateValue('');
+      const formData = new FormData(e.target);
+      const name = formData.get('name');
+      const email = formData.get('email');
+      const phone = formData.get('phone') || 'Not provided';
+      const date = formData.get('date') || 'Not provided';
+      const message = formData.get('message');
+      
+      const templateParams = {
+        from_name: name,
+        reply_to: email,
+        phone_number: phone,
+        event_date: date,
+        message: message,
+        to_name: 'About Love Bridal',
+        to_email: 'anicabarrios1@gmail.com', // Add recipient email explicitly
+        subject: `New Inquiry from ${name}`
+      };
+      
+      setDebug(`Preparing to send email: ${JSON.stringify(templateParams, null, 2)}`);
+      
+      const response = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID, 
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+      
+      if (response.status === 200) {
+        setFormStatus({
+          type: 'success',
+          message: 'Message sent successfully! We will get back to you soon.'
+        });
+        setDebug(prev => prev + '\nEmail sent successfully!');
+        e.target.reset();
+        setDateValue('');
+      } else {
+        throw new Error(`Failed with status: ${response.status}`);
+      }
     } catch (error) {
+      console.error('Error sending email:', error);
+      setDebug(prev => prev + `\nError: ${error.message || 'Unknown error'}`);
       setFormStatus({
         type: 'error',
-        message: 'Failed to send message. Please try again later.'
+        message: 'Failed to send message. Please try again later or contact us directly at aboutlovebaf@gmail.com'
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -130,7 +179,7 @@ const Contact = () => {
                 </div>
               )}
 
-              <form onSubmit={sendEmail} className="space-y-6 relative">
+              <form ref={formRef} onSubmit={sendEmail} className="space-y-6 relative">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="relative group">
                     <input
@@ -198,10 +247,11 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  className="group relative w-full sm:w-auto px-8 py-3 bg-custom text-white rounded-lg hover:bg-customdark transition-all duration-300 font-medium text-lg overflow-hidden"
+                  disabled={isSubmitting}
+                  className="group relative w-full sm:w-auto px-8 py-3 bg-custom text-white rounded-lg hover:bg-customdark transition-all duration-300 font-medium text-lg overflow-hidden disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   <span className="relative z-10 flex items-center justify-center gap-2">
-                    Send Message
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                     <FaRegPaperPlane className="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-customdark to-custom opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

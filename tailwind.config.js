@@ -37,7 +37,7 @@ module.exports = {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         serif: ['Merriweather', 'serif'],
-        chopin: ['Chopin Script', 'cursive'], // Custom Chopin Script font
+        chopin: ['Chopin Script', 'cursive'], 
       },
     },
   },

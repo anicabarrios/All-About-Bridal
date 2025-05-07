@@ -115,14 +115,14 @@ const InstagramFeed = () => {
     },
     {
       id: 3,
-      image: '/images/1.webp',
+      image: '/images/201.webp',
       likes: 203,
       comments: 35,
       caption: 'Quinceañera perfection in every detail #QuinceañeraStyle'
     },
     {
       id: 4,
-      image: '/images/148.webp',
+      image: '/images/375.webp',
       likes: 189,
       comments: 27,
       caption: 'Timeless romance for your special day #DreamDress'

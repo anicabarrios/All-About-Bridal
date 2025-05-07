@@ -182,11 +182,13 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Enhanced Testimonials Section */}
-        <TestimonialsSection />
 
-        {/* Enhanced Instagram Feed */}
+        {/* Instagram Feed */}
         <InstagramFeed />
+
+        
+        {/* Testimonials Section */}
+        <TestimonialsSection />
 
         {/* CTA Section */}
         <section className="py-20 bg-gradient-to-r from-custom/5 to-customdark/5">
